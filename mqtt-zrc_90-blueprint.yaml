@@ -32,7 +32,7 @@ variables:
 trigger:
 - platform: event
   event_type: state_changed
-condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (device_id + "_scene_state_scene" | string) }}'
+condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-22] == device_id }}'
 action:
 - variables:
     scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:]) }}'
