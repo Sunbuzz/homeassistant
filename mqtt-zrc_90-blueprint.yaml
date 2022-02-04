@@ -32,13 +32,13 @@ variables:
 trigger:
 - platform: event
   event_type: state_changed
-condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (device_id + '_scene_state_scene' | string) }}'
+condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (device_id + "_scene_state_scene" | string) }}'
 action:
 - variables:
     scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:]) }}'
     state_value_id: '{{ trigger.event.data.new_state.state | int  }}'
 - choose:
-  - conditions: '{{ scene_id == '001' and state_value_id == 0 }}'
+  - conditions: '{{ scene_id == "001" and state_value_id == 0 }}'
     sequence: !input 'button_1_1'
-  - conditions: '{{ scene_id == '002' and state_value_id == 2 }}'
+  - conditions: '{{ scene_id == "002" and state_value_id == 2 }}'
     sequence: !input 'button_1_2'
