@@ -2,7 +2,7 @@ blueprint:
   name: MQTT scene state switch
   description: Automation blueprint for many z-wave switches with up/down button
     and multiple key presses. Designed with Inovelli LNSW31 and Zooz ZEN34 mappings in mind.
-  source_url: https://github.com/moshess/homeassistant-blueprints/blob/master/mqtt/zwavejs-dimmer-switch.yaml
+  source_url: https://github.com/Sunbuzz/homeassistant/blob/main/mqtt-zrc_90-blueprint.yaml
   domain: automation
   input:
     node_name:
@@ -113,10 +113,10 @@ variables:
 trigger:
 - platform: event
   event_type: state_changed
-condition: '{{ trigger.event.data.new_state.attributes.nodeName == (node_name | string) and trigger.event.data.new_state.attributes.nodeLocation == (node_location | string) }}'
+condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (mqtt_device + "_scene_state_scene" | string) }}'
 action:
 - variables:
-    scene_id: '{{ (trigger.event.data.new_state.attributes.propertyKey | int) }}'
+    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-4:] | int) }}'
     state_value_id: '{{ trigger.event.data.new_state.state }}'
 - choose:
   - conditions: '{{ scene_id == 2 and state_value_id == 0 }}'
