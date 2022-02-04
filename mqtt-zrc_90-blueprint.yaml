@@ -21,87 +21,15 @@ blueprint:
     node_location:
       name: Location of the zwavejs entity
       description: Enter the location name configured to the device in zwavejs
-    button_a:
-      name: Button A - Up/On press 1x
+    button_1_1:
+      name: Button 1 - Single click
       description: Action to run, when the button is pressed one time.
       default: []
       selector:
         action: {}
-    button_b:
-      name: Button B - Down/Off press 1x
+    button_1_2:
+      name: Button 1 - Double click
       description: Action to run, when the button is pressed one time.
-      default: []
-      selector:
-        action: {}
-    button_a_held:
-      name: Button A - Up/On held down
-      description: Action to run, when the button is held down.
-      default: []
-      selector:
-        action: {}
-    button_b_held:
-      name: Button B - Down/Off held down
-      description: Action to run, when the button is held down.
-      default: []
-      selector:
-        action: {}
-    button_a_released:
-      name: Button A - Up/On released
-      description: Action to run, when the button is released.
-      default: []
-      selector:
-        action: {}
-    button_b_released:
-      name: Button B - Down/Off released
-      description: Action to run, when the button is released.
-      default: []
-      selector:
-        action: {}
-    button_a2:
-      name: Button A - Up/On press 2x
-      description: Action to run, when the button is pressed two times.
-      default: []
-      selector:
-        action: {}
-    button_b2:
-      name: Button B - Down/Off press 2x
-      description: Action to run, when the button is pressed two times.
-      default: []
-      selector:
-        action: {}
-    button_a3:
-      name: Button A - Up/On press 3x
-      description: Action to run, when the button is pressed three times.
-      default: []
-      selector:
-        action: {}
-    button_b3:
-      name: Button B - Down/Off press 3x
-      description: Action to run, when the button is pressed three times.
-      default: []
-      selector:
-        action: {}
-    button_a4:
-      name: Button A - Up/On press 4x
-      description: Action to run, when the button is pressed four times.
-      default: []
-      selector:
-        action: {}
-    button_b4:
-      name: Button B - Down/Off press 4x
-      description: Action to run, when the button is pressed four times.
-      default: []
-      selector:
-        action: {}
-    button_a5:
-      name: Button A - Up/On press 5x
-      description: Action to run, when the button is pressed five times.
-      default: []
-      selector:
-        action: {}
-    button_b5:
-      name: Button B - Down/Off press 5x
-      description: Action to run, when the button is pressed five times.
       default: []
       selector:
         action: {}
@@ -119,31 +47,7 @@ action:
     scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-4:] | int) }}'
     state_value_id: '{{ trigger.event.data.new_state.state }}'
 - choose:
-  - conditions: '{{ scene_id == 2 and state_value_id == 0 }}'
-    sequence: !input 'button_a'
   - conditions: '{{ scene_id == 1 and state_value_id == 0 }}'
-    sequence: !input 'button_b'
-  - conditions: '{{ scene_id == 2 and state_value_id == 1 }}'
-    sequence: !input 'button_a_released'
-  - conditions: '{{ scene_id == 1 and state_value_id == 1 }}'
-    sequence: !input 'button_b_released'
-  - conditions: '{{ scene_id == 2 and state_value_id == 2 }}'
-    sequence: !input 'button_a_held'
+    sequence: !input 'button_1_1'
   - conditions: '{{ scene_id == 1 and state_value_id == 2 }}'
-    sequence: !input 'button_b_held'
-  - conditions: '{{ scene_id == 2 and state_value_id == 3 }}'
-    sequence: !input 'button_a2'
-  - conditions: '{{ scene_id == 1 and state_value_id == 3 }}'
-    sequence: !input 'button_b2'
-  - conditions: '{{ scene_id == 2 and state_value_id == 4 }}'
-    sequence: !input 'button_a3'
-  - conditions: '{{ scene_id == 1 and state_value_id == 4 }}'
-    sequence: !input 'button_b3'
-  - conditions: '{{ scene_id == 2 and state_value_id == 5 }}'
-    sequence: !input 'button_a4'
-  - conditions: '{{ scene_id == 1 and state_value_id == 5 }}'
-    sequence: !input 'button_b4'
-  - conditions: '{{ scene_id == 2 and state_value_id == 6 }}'
-    sequence: !input 'button_a5'
-  - conditions: '{{ scene_id == 1 and state_value_id == 6 }}'
-    sequence: !input 'button_b5'
+    sequence: !input 'button_1_2'
