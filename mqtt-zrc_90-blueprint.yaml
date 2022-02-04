@@ -44,7 +44,7 @@ trigger:
 condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (mqtt_device + "_scene_state_scene" | string) }}'
 action:
 - variables:
-    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-4:] | int) }}'
+    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:] | int) }}'
     state_value_id: '{{ trigger.event.data.new_state.state }}'
 - choose:
   - conditions: '{{ scene_id == 1 and state_value_id == 0 }}'
