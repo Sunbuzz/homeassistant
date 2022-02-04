@@ -28,7 +28,7 @@ blueprint:
 mode: single
 max_exceeded: silent
 variables:
-  device_id: !input remotec_zrc90
+  device_id: 'Vardagsrum-ZRC-90'
 trigger:
 - platform: event
   event_type: state_changed
