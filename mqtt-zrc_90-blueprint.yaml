@@ -8,6 +8,7 @@ blueprint:
     mqtt_device:
       name: MQTT switch
       description: List of available MQTT entities.
+      selector:
         device:
           integration: mqtt
           entity:
