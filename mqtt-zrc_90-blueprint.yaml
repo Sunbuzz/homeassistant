@@ -5,49 +5,39 @@ blueprint:
   source_url: https://github.com/Sunbuzz/homeassistant/blob/main/mqtt-zrc_90-blueprint.yaml
   domain: automation
   input:
-    node_name:
-      name: Name of the zwavejs entity
-      description: Enter the name configured to the device in zwavejs
     mqtt_device:
       name: MQTT switch
-      description: List of available MQTT entities. This list is intended for reference only.
-        At this time, it is not known how to or if we can obtain the nodeName
-        and nodeLocation from the device used to filter the events.
-      selector:
+      description: List of available MQTT entities.
         device:
           integration: mqtt
           entity:
             domain: sensor
-    node_location:
-      name: Location of the zwavejs entity
-      description: Enter the location name configured to the device in zwavejs
     button_1_1:
       name: Button 1 - Single click
-      description: Action to run, when the button is pressed one time.
+      description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_1_2:
       name: Button 1 - Double click
-      description: Action to run, when the button is pressed one time.
+      description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
 mode: single
 max_exceeded: silent
 variables:
-  node_name: !input 'node_name'
-  node_location: !input 'node_location'
+  mqtt_device: !input 'mqtt_device'
 trigger:
 - platform: event
   event_type: state_changed
 condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (mqtt_device + "_scene_state_scene" | string) }}'
 action:
 - variables:
-    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:] | int) }}'
-    state_value_id: '{{ trigger.event.data.new_state.state }}'
+    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:] | string) }}'
+    state_value_id: '{{ trigger.event.data.new_state.state | int  }}'
 - choose:
-  - conditions: '{{ scene_id == 1 and state_value_id == 0 }}'
+  - conditions: '{{ scene_id == '001' and state_value_id == 0 }}'
     sequence: !input 'button_1_1'
-  - conditions: '{{ scene_id == 1 and state_value_id == 2 }}'
+  - conditions: '{{ scene_id == '002' and state_value_id == 2 }}'
     sequence: !input 'button_1_2'
