@@ -5,14 +5,14 @@ blueprint:
   source_url: https://github.com/Sunbuzz/homeassistant/blob/main/mqtt-zrc_90-blueprint.yaml
   domain: automation
   input:
-    mqtt_device:
-      name: MQTT switch
-      description: List of available MQTT entities.
+    remotec_zrc90:
+      name: Remotec ZRC-90
+      description: The Remotec ZRC-90 to interact with.
       selector:
         device:
           integration: mqtt
-          entity:
-            domain: sensor
+          manufacturer: Remotec
+          model: Scene master 8 button remote (BW8510)
     button_1_1:
       name: Button 1 - Single click
       description: Action to run when the button is pressed one time.
@@ -28,14 +28,14 @@ blueprint:
 mode: single
 max_exceeded: silent
 variables:
-  mqtt_device: !input 'mqtt_device'
+  device_id: !input remotec_zrc90
 trigger:
 - platform: event
   event_type: state_changed
-condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (mqtt_device + "_scene_state_scene" | string) }}'
+condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-4] == (device_id + '_scene_state_scene') }}'
 action:
 - variables:
-    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:] | string) }}'
+    scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:]) }}'
     state_value_id: '{{ trigger.event.data.new_state.state | int  }}'
 - choose:
   - conditions: '{{ scene_id == '001' and state_value_id == 0 }}'
