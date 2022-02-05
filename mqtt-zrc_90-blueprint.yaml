@@ -27,7 +27,7 @@ blueprint:
         action: {}
 mode: single
 max_exceeded: silent
-variables:
+trigger_variables:
   device_id: !input remotec_zrc90
   device_name: device_attr(device_id,"name")
 trigger:
