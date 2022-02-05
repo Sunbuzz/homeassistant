@@ -31,127 +31,127 @@ blueprint:
       selector:
         action: {}
     button_2_1:
-      name: Button 1 - Single click
+      name: Button 2 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_2_2:
-      name: Button 1 - Double click
+      name: Button 2 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_2_3:
-      name: Button 1 - Hold
+      name: Button 2 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
         action: {}
     button_3_1:
-      name: Button 1 - Single click
+      name: Button 3 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_3_2:
-      name: Button 1 - Double click
+      name: Button 3 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_3_3:
-      name: Button 1 - Hold
+      name: Button 3 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
         action: {}
     button_4_1:
-      name: Button 1 - Single click
+      name: Button 4 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_4_2:
-      name: Button 1 - Double click
+      name: Button 4 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_4_3:
-      name: Button 1 - Hold
+      name: Button 4 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
         action: {}
     button_5_1:
-      name: Button 1 - Single click
+      name: Button 5 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_5_2:
-      name: Button 1 - Double click
+      name: Button 5 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_5_3:
-      name: Button 1 - Hold
+      name: Button 5 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
         action: {}
     button_6_1:
-      name: Button 1 - Single click
+      name: Button 6 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_6_2:
-      name: Button 1 - Double click
+      name: Button 6 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_6_3:
-      name: Button 1 - Hold
+      name: Button 6 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
         action: {}
     button_7_1:
-      name: Button 1 - Single click
+      name: Button 7 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_7_2:
-      name: Button 1 - Double click
+      name: Button 7 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_7_3:
-      name: Button 1 - Hold
+      name: Button 7 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
         action: {}
     button_8_1:
-      name: Button 1 - Single click
+      name: Button 8 - Single click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_8_2:
-      name: Button 1 - Double click
+      name: Button 8 - Double click
       description: Action to run when the button is pressed one time.
       default: []
       selector:
         action: {}
     button_8_3:
-      name: Button 1 - Hold
+      name: Button 8 - Hold
       description: Action to run when the button is held down.
       default: []
       selector:
