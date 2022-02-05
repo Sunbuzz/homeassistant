@@ -1,5 +1,5 @@
 blueprint:
-  name: MQTT ZRC-90
+  name: Remotec ZRC-90 Scene Master for WaveJS-MQTT
   description: Automation blueprint for ZRC-90 using WaveJS MQTT.
   source_url: https://github.com/Sunbuzz/homeassistant/blob/main/mqtt-zrc_90-blueprint.yaml
   domain: automation
