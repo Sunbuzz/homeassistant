@@ -28,11 +28,12 @@ blueprint:
 mode: single
 max_exceeded: silent
 variables:
-  device_id: device_attr(!input remotec_zrc90,"name")
+  device_id: !input remotec_zrc90
+  device_name: device_attr(device_id,"name")
 trigger:
 - platform: event
   event_type: state_changed
-condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-22] == device_id }}'
+condition: '{{ trigger.event.data.new_state.attributes.friendly_name[0:-22] == device_name }}'
 action:
 - variables:
     scene_id: '{{ (trigger.event.data.new_state.attributes.friendly_name[-3:]) }}'
