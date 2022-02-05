@@ -29,7 +29,7 @@ mode: single
 max_exceeded: silent
 trigger_variables:
   device_id: !input remotec_zrc90
-  device_name: device_attr(device_id,"name")
+  device_name: '{{ device_attr(device_id,"name") }}'
 trigger:
 - platform: event
   event_type: state_changed
