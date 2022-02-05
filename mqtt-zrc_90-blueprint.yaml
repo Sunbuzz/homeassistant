@@ -1,7 +1,6 @@
 blueprint:
-  name: MQTT scene state switch
-  description: Automation blueprint for many z-wave switches with up/down button
-    and multiple key presses. Designed with Inovelli LNSW31 and Zooz ZEN34 mappings in mind.
+  name: MQTT ZRC-90
+  description: Automation blueprint for ZRC-90 using WaveJS MQTT.
   source_url: https://github.com/Sunbuzz/homeassistant/blob/main/mqtt-zrc_90-blueprint.yaml
   domain: automation
   input:
@@ -25,6 +24,138 @@ blueprint:
       default: []
       selector:
         action: {}
+    button_1_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_2_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_2_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_2_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_3_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_3_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_3_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_4_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_4_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_4_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_5_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_5_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_5_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_6_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_6_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_6_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_7_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_7_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_7_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
+    button_8_1:
+      name: Button 1 - Single click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_8_2:
+      name: Button 1 - Double click
+      description: Action to run when the button is pressed one time.
+      default: []
+      selector:
+        action: {}
+    button_8_3:
+      name: Button 1 - Hold
+      description: Action to run when the button is held down.
+      default: []
+      selector:
+        action: {}
 mode: single
 max_exceeded: silent
 variables:
@@ -41,5 +172,49 @@ action:
 - choose:
   - conditions: '{{ scene_id == "001" and state_value_id == 0 }}'
     sequence: !input 'button_1_1'
-  - conditions: '{{ scene_id == "002" and state_value_id == 2 }}'
+  - conditions: '{{ scene_id == "001" and state_value_id == 3 }}'
     sequence: !input 'button_1_2'
+  - conditions: '{{ scene_id == "001" and state_value_id == 1 }}'
+    sequence: !input 'button_1_3'
+  - conditions: '{{ scene_id == "002" and state_value_id == 0 }}'
+    sequence: !input 'button_2_1'
+  - conditions: '{{ scene_id == "002" and state_value_id == 3 }}'
+    sequence: !input 'button_2_2'
+  - conditions: '{{ scene_id == "002" and state_value_id == 1 }}'
+    sequence: !input 'button_2_3'
+  - conditions: '{{ scene_id == "003" and state_value_id == 0 }}'
+    sequence: !input 'button_3_1'
+  - conditions: '{{ scene_id == "003" and state_value_id == 3 }}'
+    sequence: !input 'button_3_2'
+  - conditions: '{{ scene_id == "003" and state_value_id == 1 }}'
+    sequence: !input 'button_3_3'
+  - conditions: '{{ scene_id == "004" and state_value_id == 0 }}'
+    sequence: !input 'button_4_1'
+  - conditions: '{{ scene_id == "004" and state_value_id == 3 }}'
+    sequence: !input 'button_4_2'
+  - conditions: '{{ scene_id == "004" and state_value_id == 1 }}'
+    sequence: !input 'button_4_3'
+  - conditions: '{{ scene_id == "005" and state_value_id == 0 }}'
+    sequence: !input 'button_5_1'
+  - conditions: '{{ scene_id == "005" and state_value_id == 3 }}'
+    sequence: !input 'button_5_2'
+  - conditions: '{{ scene_id == "005" and state_value_id == 1 }}'
+    sequence: !input 'button_5_3'
+  - conditions: '{{ scene_id == "006" and state_value_id == 0 }}'
+    sequence: !input 'button_6_1'
+  - conditions: '{{ scene_id == "006" and state_value_id == 3 }}'
+    sequence: !input 'button_6_2'
+  - conditions: '{{ scene_id == "006" and state_value_id == 1 }}'
+    sequence: !input 'button_6_3'
+  - conditions: '{{ scene_id == "007" and state_value_id == 0 }}'
+    sequence: !input 'button_7_1'
+  - conditions: '{{ scene_id == "007" and state_value_id == 3 }}'
+    sequence: !input 'button_7_2'
+  - conditions: '{{ scene_id == "007" and state_value_id == 1 }}'
+    sequence: !input 'button_7_3'
+  - conditions: '{{ scene_id == "008" and state_value_id == 0 }}'
+    sequence: !input 'button_8_1'
+  - conditions: '{{ scene_id == "008" and state_value_id == 3 }}'
+    sequence: !input 'button_8_2'
+  - conditions: '{{ scene_id == "008" and state_value_id == 1 }}'
+    sequence: !input 'button_8_3'
